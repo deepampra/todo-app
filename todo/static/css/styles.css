@@ -1,0 +1,328 @@
+/* ===== Base Layout ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #3f2b96, #000000);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  color: #fff;
+}
+
+.App {
+  text-align: center;
+  width: 100%;
+}
+
+/* ===== Wrapper ===== */
+.TodoWrapper {
+  background: rgba(20, 20, 20, 0.92);
+  margin: 0 auto;
+  padding: 1.75rem 1.5rem 1.5rem;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  animation: fadeUp 0.7s ease-out;
+  border: 1px solid rgba(135, 88, 255, 0.3);
+}
+
+/* ===== Heading ===== */
+h1 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  animation: titleGlow 2.4s ease-in-out infinite alternate;
+}
+
+/* Small subtitle or message (optional) */
+.heads {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Form ===== */
+.TodoForm {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.todo-input {
+  outline: none;
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid #8758ff;
+  padding: 0.7rem 1rem;
+  flex: 1 1 220px;
+  max-width: 320px;
+  color: #fff;
+  border-radius: 999px;
+  transition: border 0.23s ease, box-shadow 0.23s ease, transform 0.23s ease;
+}
+
+.todo-input::placeholder {
+  color: #ffffff80;
+}
+
+.todo-input:focus {
+  border-color: #b497ff;
+  box-shadow: 0 0 18px rgba(135, 88, 255, 0.7);
+  transform: translateY(-1px);
+}
+
+/* ===== Button ===== */
+.todo-btn {
+  background: linear-gradient(135deg, #8758ff, #b497ff);
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.todo-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 15px rgba(135, 88, 255, 0.9);
+  filter: brightness(1.05);
+}
+
+.todo-btn:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 0 6px rgba(135, 88, 255, 0.7);
+}
+
+/* ===== Todo List Scroll Area ===== */
+.scr {
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 0.2rem;
+}
+
+.scr::-webkit-scrollbar {
+  width: 0;
+}
+
+/* ===== Todo Item ===== */
+.Todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffff00a9;
+  color: #000;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.8rem 0.9rem;
+  text-align: left;
+  margin-inline: 0.2rem;
+  position: relative;
+  overflow: hidden;
+  animation: slideIn 0.4s ease-out;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+/* Shine effect on hover */
+.Todo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: skewX(-25deg);
+  opacity: 0;
+}
+
+.Todo:hover::before {
+  animation: shine 0.8s forwards;
+}
+
+.Todo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+  background: #fff88aa9;
+}
+
+/* Text part and icons inside Todo */
+.Todo span {
+  flex: 1;
+  margin-right: 0.5rem;
+}
+
+/* ===== Icons / Delete ===== */
+.fa-trash {
+  margin-left: 0.75rem;
+  font-size: 1rem;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.fa-trash:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.6));
+}
+
+/* ===== Completed State ===== */
+.completed {
+  color: #555;
+  text-decoration: line-through;
+  opacity: 0.75;
+}
+
+/* ===== Links ===== */
+a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+/* ===== Status Colors ===== */
+.todo-green {
+  background: linear-gradient(135deg, #0bab64, #3bb78f);
+  color: #fff;
+}
+
+.todo-red {
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+  color: #fff;
+}
+
+/* ===== Extra small element ===== */
+.anca {
+  font-size: 1.3rem;
+  margin-top: 7px;
+  margin-right: -20px;
+}
+
+/* ===== Responsive ===== */
+
+/* Tablets & small laptops */
+@media (min-width: 600px) {
+  .TodoWrapper {
+    max-width: 580px;
+    padding-inline: 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .Todo {
+    font-size: 1.05rem;
+    padding: 0.9rem 1rem;
+  }
+
+  .scr {
+    max-height: 380px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  .TodoWrapper {
+    max-width: 640px;
+  }
+
+  .TodoForm {
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+
+  .todo-input {
+    flex: 1;
+    max-width: none;
+  }
+
+  .scr {
+    max-height: 420px;
+  }
+}
+
+/* ===== Animations ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes titleGlow {
+  from {
+    text-shadow: 0 0 6px rgba(135, 88, 255, 0.9),
+      0 0 14px rgba(135, 88, 255, 0.6);
+  }
+  to {
+    text-shadow: 0 0 12px rgba(135, 88, 255, 1),
+      0 0 24px rgba(135, 88, 255, 0.9);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shine {
+  0% {
+    left: -80%;
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    left: 140%;
+    opacity: 0;
+  }
+}

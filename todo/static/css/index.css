@@ -1,0 +1,283 @@
+/* ===== RESET & BODY ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #0b0d0f, #050814);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== MAIN WRAPPER ===== */
+.signup-login {
+  background: transparent;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  font-size: 24px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 1rem;
+}
+
+/* ===== CARD (LOGIN / SIGNUP) ===== */
+.signup-box,
+.signup-box1 {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 1.8rem 1.5rem 2rem;
+  max-width: 480px;
+  width: 100%;
+  animation: fadeUp 0.7s ease-out, softGlow 3s ease-in-out infinite alternate;
+  backdrop-filter: blur(14px);
+}
+
+/* different height if you want */
+.signup-box {
+  min-height: 540px;
+}
+
+.signup-box1 {
+  min-height: 480px;
+}
+
+/* ===== HEADING / TOP BAR ===== */
+.heading {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  margin-bottom: 0.3rem;
+  letter-spacing: 1px;
+}
+
+.heads {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+/* small label text */
+b {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-left: 0.3rem;
+}
+
+/* ===== INPUT FIELDS ===== */
+.inp {
+  margin-top: 0.6rem;
+  margin-bottom: 0.4rem;
+  width: 100%;
+  height: 50px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 0 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: rgba(10, 20, 40, 0.85);
+  box-sizing: border-box;
+  transition: border 0.25s ease, box-shadow 0.25s ease, transform 0.18s ease, background 0.25s ease;
+}
+
+.inp::placeholder {
+  color: #ffffff9e;
+}
+
+.inp:focus {
+  outline: none;
+  border-color: #ffff00bc;
+  box-shadow: 0 0 18px rgba(255, 255, 0, 0.55);
+  transform: translateY(-1px);
+  background-color: rgba(20, 35, 60, 0.95);
+}
+
+/* ===== BUTTON ===== */
+.submit-button {
+  margin-top: 1.1rem;
+  width: 100%;
+  height: 50px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #252525, #3b3b3b);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-sizing: border-box;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: transform 0.18s ease, box-shadow 0.2s ease, filter 0.18s ease;
+  animation: buttonFloat 3s ease-in-out infinite alternate;
+}
+
+.submit-button:hover {
+  background: linear-gradient(135deg, #ffff00bc, #ffeb3b);
+  color: #000;
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 10px 26px rgba(255, 255, 0, 0.5);
+  filter: brightness(1.05);
+}
+
+.submit-button:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.7);
+}
+
+/* ===== DIVIDER LINE ===== */
+.line {
+  margin: 1.2rem 0;
+  height: 1px;
+  width: 100%;
+  border: none;
+  background: linear-gradient(to right, transparent, #ffffffb8, transparent);
+}
+
+/* ===== LINKS ===== */
+.anc,
+a {
+  text-decoration: none;
+  color: #ffff00bc;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.18s ease, opacity 0.2s ease;
+}
+
+.anc {
+  display: block;
+  text-align: center;
+  margin-top: 0.3rem;
+}
+
+a:hover,
+.anc:hover {
+  color: #fff;
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+/* small icons or back arrow etc. */
+.anca {
+  font-size: 1.5rem;
+  margin-top: 0.4rem;
+  margin-right: -0.8rem;
+}
+
+.ancaa {
+  font-size: 1.5rem;
+  margin-top: 1.2rem;
+  margin-left: -1.2rem;
+}
+
+/* ===== COMPLETED STATE (IF USED FOR TODOS) ===== */
+.completed {
+  color: #c5aeff;
+  text-decoration: line-through;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* phones */
+@media (max-width: 480px) {
+  .signup-login {
+    padding: 1rem 0.7rem;
+  }
+
+  .signup-box,
+  .signup-box1 {
+    padding: 1.4rem 1rem 1.6rem;
+    border-radius: 18px;
+  }
+
+  .heading {
+    font-size: 1.6rem;
+  }
+
+  .inp,
+  .submit-button {
+    height: 46px;
+    font-size: 0.9rem;
+  }
+
+  .anc,
+  a {
+    font-size: 0.9rem;
+  }
+
+  .heads {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* tablets / small laptops */
+@media (min-width: 768px) {
+  .signup-login {
+    padding: 1.5rem 2rem;
+  }
+
+  .signup-box,
+  .signup-box1 {
+    max-width: 520px;
+  }
+}
+
+/* desktop large */
+@media (min-width: 1100px) {
+  .signup-login {
+    max-width: 1100px;
+  }
+
+  /* if you have both signup and login side by side */
+  .signup-login.multi {
+    display: flex;
+    gap: 2rem;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes softGlow {
+  from {
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65),
+      0 0 12px rgba(255, 255, 255, 0.25);
+  }
+  to {
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65),
+      0 0 22px rgba(255, 255, 255, 0.45);
+  }
+}
+
+@keyframes buttonFloat {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-3px);
+  }
+}
